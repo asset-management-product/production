@@ -1,0 +1,190 @@
+﻿ Mã ICB , Tên ngành , Cấp , Level 1 , Level 2 , Level 3 , Level 4 
+ 0001 , Dầu khí , 1 , Dầu khí ,  ,  ,  
+ 0500 , Dầu khí , 2 , Dầu khí , Dầu khí ,  ,  
+ 0530 , Sản xuất dầu khí , 3 , Dầu khí , Dầu khí , Sản xuất dầu khí ,  
+ 0533 , Thăm dò và sản xuất dầu khí , 4 , Dầu khí , Dầu khí , Sản xuất dầu khí , Thăm dò và sản xuất dầu khí 
+ 0537 , Dầu khí tích hợp , 4 , Dầu khí , Dầu khí , Sản xuất dầu khí , Dầu khí tích hợp 
+ 0570 ," Thiết bị, dịch vụ và phân phối dầu khí ", 3 , Dầu khí , Dầu khí ," Thiết bị, dịch vụ và phân phối dầu khí ",  
+ 0573 ," Thiết bị, dịch vụ khai thác dầu mỏ ", 4 , Dầu khí , Dầu khí ," Thiết bị, dịch vụ và phân phối dầu khí "," Thiết bị, dịch vụ khai thác dầu mỏ "
+ 0577 , Ống dẫn dầu khí , 4 , Dầu khí , Dầu khí ," Thiết bị, dịch vụ và phân phối dầu khí ", Ống dẫn dầu khí 
+ 0580 , Năng lượng thay thế , 3 , Dầu khí , Dầu khí , Năng lượng thay thế ,  
+ 0583 , Thiết bị năng lượng tái tạo , 4 , Dầu khí , Dầu khí , Năng lượng thay thế , Thiết bị năng lượng tái tạo 
+ 0587 , Nhiên liệu thay thế , 4 , Dầu khí , Dầu khí , Năng lượng thay thế , Nhiên liệu thay thế 
+ 1000 , Vật liệu cơ bản , 1 , Vật liệu cơ bản ,  ,  ,  
+ 1300 , Hóa chất , 2 , Vật liệu cơ bản , Hóa chất ,  ,  
+ 1350 , Hóa chất , 3 , Vật liệu cơ bản , Hóa chất , Hóa chất ,  
+ 1353 ," Hóa chất cơ bản - Sản phẩm nhựa, cao su, hóa chất ", 4 , Vật liệu cơ bản , Hóa chất , Hóa chất ," Hóa chất cơ bản - Sản phẩm nhựa, cao su, hóa chất "
+ 1357 , Hóa chất chuyên dụng , 4 , Vật liệu cơ bản , Hóa chất , Hóa chất , Hóa chất chuyên dụng 
+ 1700 , Tài nguyên cơ bản , 2 , Vật liệu cơ bản , Tài nguyên cơ bản ,  ,  
+ 1730 , Lâm nghiệp và giấy , 3 , Vật liệu cơ bản , Tài nguyên cơ bản , Lâm nghiệp và giấy ,  
+ 1733 ," Trồng rừng, khai thác gỗ và kinh doanh lâm sản ", 4 , Vật liệu cơ bản , Tài nguyên cơ bản , Lâm nghiệp và giấy ," Trồng rừng, khai thác gỗ và kinh doanh lâm sản "
+ 1737 , Giấy , 4 , Vật liệu cơ bản , Tài nguyên cơ bản , Lâm nghiệp và giấy , Giấy 
+ 1750 , Kim loại công nghiệp , 3 , Vật liệu cơ bản , Tài nguyên cơ bản , Kim loại công nghiệp ,  
+1753,Nhôm,4, Vật liệu cơ bản , Tài nguyên cơ bản , Kim loại công nghiệp , Nhôm 
+1755,Kim loại màu,4, Vật liệu cơ bản , Tài nguyên cơ bản , Kim loại công nghiệp , Kim loại màu 
+1757,Thép,4, Vật liệu cơ bản , Tài nguyên cơ bản , Kim loại công nghiệp , Thép 
+1770,Khai khoáng,3, Vật liệu cơ bản , Tài nguyên cơ bản , Khai khoáng ,  
+1771,Khai thác than,4, Vật liệu cơ bản , Tài nguyên cơ bản , Khai khoáng , Khai thác than 
+1773,Kim cương và đá quý,4, Vật liệu cơ bản , Tài nguyên cơ bản , Khai khoáng , Kim cương và đá quý 
+1775,Khai khoáng chung,4, Vật liệu cơ bản , Tài nguyên cơ bản , Khai khoáng , Khai khoáng chung 
+1777,Khai thác vàng,4, Vật liệu cơ bản , Tài nguyên cơ bản , Khai khoáng , Khai thác vàng 
+1779,Khai thác bạch kim và các kim loại quý khác,4, Vật liệu cơ bản , Tài nguyên cơ bản , Khai khoáng , Khai thác bạch kim và các kim loại quý khác 
+2000,Công nghiệp,1, Công nghiệp ,  ,  ,  
+2300,Xây dựng và vật liệu xây dựng,2, Công nghiệp , Xây dựng và vật liệu xây dựng ,  ,  
+2350,Xây dựng và vật liệu xây dựng,3, Công nghiệp , Xây dựng và vật liệu xây dựng , Xây dựng và vật liệu xây dựng ,  
+2353,"Thiết bị, vật liệu xây dựng",4, Công nghiệp , Xây dựng và vật liệu xây dựng , Xây dựng và vật liệu xây dựng ," Thiết bị, vật liệu xây dựng "
+2357,"Xây dựng, xây lắp",4, Công nghiệp , Xây dựng và vật liệu xây dựng , Xây dựng và vật liệu xây dựng ," Xây dựng, xây lắp "
+2700,Các sản phẩm và dịch vụ công nghiệp,2, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ,  ,  
+2710,Công nghiệp hàng không vũ trụ và quốc phòng,3, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp , Công nghiệp hàng không vũ trụ và quốc phòng ,  
+2713,Công nghiệp hàng không vũ trụ,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp , Công nghiệp hàng không vũ trụ và quốc phòng , Công nghiệp hàng không vũ trụ 
+2717,Công nghiệp quốc phòng,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp , Công nghiệp hàng không vũ trụ và quốc phòng , Công nghiệp quốc phòng 
+2720,Công nghiệp đa dụng,3, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp , Công nghiệp đa dụng ,  
+2723,"Thùng, hộp, bao bì",4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp , Công nghiệp đa dụng ," Thùng, hộp, bao bì "
+2727,Công nghiệp đa ngành,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp , Công nghiệp đa dụng , Công nghiệp đa ngành 
+2730,"Thiết bị điện, điện tử",3, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Thiết bị điện, điện tử ",  
+2733,Các linh kiện và thiết bị điện,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Thiết bị điện, điện tử ", Các linh kiện và thiết bị điện 
+2737,Các thiết bị điện tử,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Thiết bị điện, điện tử ", Các thiết bị điện tử 
+2750,"Cơ khí, chế tạo máy",3, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Cơ khí, chế tạo máy ",  
+2753,Các phương tiện thương mại và xe thùng,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Cơ khí, chế tạo máy ", Các phương tiện thương mại và xe thùng 
+2757,Máy công nghiệp,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Cơ khí, chế tạo máy ", Máy công nghiệp 
+2770,"Vận tải, kho bãi",3, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Vận tải, kho bãi ",  
+2771,Dịch vụ bưu chính,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Vận tải, kho bãi ", Dịch vụ bưu chính 
+2773,Vận tải biển,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Vận tải, kho bãi ", Vận tải biển 
+2775,Đường sắt,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Vận tải, kho bãi ", Đường sắt 
+2777,Dịch vụ vận tải,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Vận tải, kho bãi ", Dịch vụ vận tải 
+2779,Xe tải,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Vận tải, kho bãi ", Xe tải 
+2790,"Dịch vụ hỗ trợ, tư vấn, thiết kế",3, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Dịch vụ hỗ trợ, tư vấn, thiết kế ",  
+2791,Các dịch vụ hỗ trợ kinh doanh,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Dịch vụ hỗ trợ, tư vấn, thiết kế ", Các dịch vụ hỗ trợ kinh doanh 
+2793,Đào tạo nhân sự và việc làm,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Dịch vụ hỗ trợ, tư vấn, thiết kế ", Đào tạo nhân sự và việc làm 
+2795,"Điều hành, theo dõi tài chính",4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Dịch vụ hỗ trợ, tư vấn, thiết kế "," Điều hành, theo dõi tài chính "
+2797,Các nhà cung cấp công nghiệp,4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Dịch vụ hỗ trợ, tư vấn, thiết kế ", Các nhà cung cấp công nghiệp 
+2799,"Dịch vụ xử lý nước thải, rác thải",4, Công nghiệp , Các sản phẩm và dịch vụ công nghiệp ," Dịch vụ hỗ trợ, tư vấn, thiết kế "," Dịch vụ xử lý nước thải, rác thải "
+3000,Hàng tiêu dùng,1, Hàng tiêu dùng ,  ,  ,  
+3300,Ôtô và linh kiện ôtô,2, Hàng tiêu dùng , Ôtô và linh kiện ôtô ,  ,  
+3350,Ôtô và linh kiện ôtô,3, Hàng tiêu dùng , Ôtô và linh kiện ôtô , Ôtô và linh kiện ôtô ,  
+3353,Ô tô,4, Hàng tiêu dùng , Ôtô và linh kiện ôtô , Ôtô và linh kiện ôtô , Ô tô 
+3355,Linh kiện ôtô,4, Hàng tiêu dùng , Ôtô và linh kiện ôtô , Ôtô và linh kiện ôtô , Linh kiện ôtô 
+3357,Lốp,4, Hàng tiêu dùng , Ôtô và linh kiện ôtô , Ôtô và linh kiện ôtô , Lốp 
+3500,Thực phẩm và đồ uống,2, Hàng tiêu dùng , Thực phẩm và đồ uống ,  ,  
+3530,Đồ uống,3, Hàng tiêu dùng , Thực phẩm và đồ uống , Đồ uống ,  
+3533,Bia,4, Hàng tiêu dùng , Thực phẩm và đồ uống , Đồ uống , Bia 
+3535,Chưng cất và bán rượu,4, Hàng tiêu dùng , Thực phẩm và đồ uống , Đồ uống , Chưng cất và bán rượu 
+3537,Nước giải khát,4, Hàng tiêu dùng , Thực phẩm và đồ uống , Đồ uống , Nước giải khát 
+3570,Sản xuất thực phẩm,3, Hàng tiêu dùng , Thực phẩm và đồ uống , Sản xuất thực phẩm ,  
+3573,"Nông sản, thủy sản, đồn điền",4, Hàng tiêu dùng , Thực phẩm và đồ uống , Sản xuất thực phẩm ," Nông sản, thủy sản, đồn điền "
+3577,Sản phẩm thực phẩm,4, Hàng tiêu dùng , Thực phẩm và đồ uống , Sản xuất thực phẩm , Sản phẩm thực phẩm 
+3700,Hàng tiêu dùng cá nhân và gia đình,2, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình ,  ,  
+3720,Hàng gia dụng,3, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Hàng gia dụng ,  
+3722,Sản phẩm gia dụng lâu bền,4, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Hàng gia dụng , Sản phẩm gia dụng lâu bền 
+3724,Sản phẩm gia dụng không lâu bền,4, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Hàng gia dụng , Sản phẩm gia dụng không lâu bền 
+3726,Nội thất,4, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Hàng gia dụng , Nội thất 
+3728,Xây dựng nhà ở,4, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Hàng gia dụng , Xây dựng nhà ở 
+3740,Hàng tiêu khiển,3, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Hàng tiêu khiển ,  
+3743,Đồ điện tử tiêu dùng,4, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Hàng tiêu khiển , Đồ điện tử tiêu dùng 
+3745,Sản phẩm tiêu khiển,4, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Hàng tiêu khiển , Sản phẩm tiêu khiển 
+3747,Đồ chơi,4, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Hàng tiêu khiển , Đồ chơi 
+3760,Đồ dùng cá nhân,3, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Đồ dùng cá nhân ,  
+3763,Quần áo và đồ phụ kiện,4, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Đồ dùng cá nhân , Quần áo và đồ phụ kiện 
+3765,Da giầy,4, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Đồ dùng cá nhân , Da giầy 
+3767,Sản phẩm cá nhân,4, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Đồ dùng cá nhân , Sản phẩm cá nhân 
+3780,Thuốc lá,3, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Thuốc lá ,  
+3785,Thuốc lá,4, Hàng tiêu dùng , Hàng tiêu dùng cá nhân và gia đình , Thuốc lá , Thuốc lá 
+4000,Y tế,1, Y tế ,  ,  ,  
+4500,Y tế,2, Y tế , Y tế ,  ,  
+4530,Thiết bị và dịch vụ y tế,3, Y tế , Y tế , Thiết bị và dịch vụ y tế ,  
+4533,Các nhà cung cấp dịch vụ y tế,4, Y tế , Y tế , Thiết bị và dịch vụ y tế , Các nhà cung cấp dịch vụ y tế 
+4535,Trang thiết bị y tế,4, Y tế , Y tế , Thiết bị và dịch vụ y tế , Trang thiết bị y tế 
+4537,Vật tư y tế,4, Y tế , Y tế , Thiết bị và dịch vụ y tế , Vật tư y tế 
+4570,Dược phẩm và công nghệ sinh học,3, Y tế , Y tế , Dược phẩm và công nghệ sinh học ,  
+4573,Công nghệ sinh học,4, Y tế , Y tế , Dược phẩm và công nghệ sinh học , Công nghệ sinh học 
+4577,Dược phẩm,4, Y tế , Y tế , Dược phẩm và công nghệ sinh học , Dược phẩm 
+5000,Dịch vụ tiêu dùng,1, Dịch vụ tiêu dùng ,  ,  ,  
+5300,Bán lẻ,2, Dịch vụ tiêu dùng , Bán lẻ ,  ,  
+5330,Bán lẻ thực phẩm và dược phẩm,3, Dịch vụ tiêu dùng , Bán lẻ , Bán lẻ thực phẩm và dược phẩm ,  
+5333,Bán lẻ thuốc,4, Dịch vụ tiêu dùng , Bán lẻ , Bán lẻ thực phẩm và dược phẩm , Bán lẻ thuốc 
+5337,Bán buôn bán lẻ thực phẩm,4, Dịch vụ tiêu dùng , Bán lẻ , Bán lẻ thực phẩm và dược phẩm , Bán buôn bán lẻ thực phẩm 
+5370,Bán lẻ chung,3, Dịch vụ tiêu dùng , Bán lẻ , Bán lẻ chung ,  
+5371,Bán lẻ đồ may mặc,4, Dịch vụ tiêu dùng , Bán lẻ , Bán lẻ chung , Bán lẻ đồ may mặc 
+5373,Bán lẻ tổng hợp,4, Dịch vụ tiêu dùng , Bán lẻ , Bán lẻ chung , Bán lẻ tổng hợp 
+5375,Bán lẻ đồ nội thất,4, Dịch vụ tiêu dùng , Bán lẻ , Bán lẻ chung , Bán lẻ đồ nội thất 
+5377,Dịch vụ tiêu dùng đặc chủng,4, Dịch vụ tiêu dùng , Bán lẻ , Bán lẻ chung , Dịch vụ tiêu dùng đặc chủng 
+5379,Bán lẻ đặc chủng,4, Dịch vụ tiêu dùng , Bán lẻ , Bán lẻ chung , Bán lẻ đặc chủng 
+5500,Truyền thông,2, Dịch vụ tiêu dùng , Truyền thông ,  ,  
+5550,Truyền thông,3, Dịch vụ tiêu dùng , Truyền thông , Truyền thông ,  
+5553,Phát thanh truyền hình,4, Dịch vụ tiêu dùng , Truyền thông , Truyền thông , Phát thanh truyền hình 
+5555,Các công ty truyền thông,4, Dịch vụ tiêu dùng , Truyền thông , Truyền thông , Các công ty truyền thông 
+5557,Xuất bản,4, Dịch vụ tiêu dùng , Truyền thông , Truyền thông , Xuất bản 
+5700,Du lịch và giải trí,2, Dịch vụ tiêu dùng , Du lịch và giải trí ,  ,  
+5750,Du lịch và giải trí,3, Dịch vụ tiêu dùng , Du lịch và giải trí , Du lịch và giải trí ,  
+5751,Hàng không chở khách,4, Dịch vụ tiêu dùng , Du lịch và giải trí , Du lịch và giải trí , Hàng không chở khách 
+5752,Cờ bạc,4, Dịch vụ tiêu dùng , Du lịch và giải trí , Du lịch và giải trí , Cờ bạc 
+5753,Khách sạn,4, Dịch vụ tiêu dùng , Du lịch và giải trí , Du lịch và giải trí , Khách sạn 
+5755,Dịch vụ giải trí,4, Dịch vụ tiêu dùng , Du lịch và giải trí , Du lịch và giải trí , Dịch vụ giải trí 
+5757,Nhà hàng và bar,4, Dịch vụ tiêu dùng , Du lịch và giải trí , Du lịch và giải trí , Nhà hàng và bar 
+5759,Du lịch,4, Dịch vụ tiêu dùng , Du lịch và giải trí , Du lịch và giải trí , Du lịch 
+6000,Viễn thông,1, Viễn thông ,  ,  ,  
+6500,Viễn thông,2, Viễn thông , Viễn thông ,  ,  
+6530,Viễn thông cố định,3, Viễn thông , Viễn thông , Viễn thông cố định ,  
+6535,Viễn thông cố định,4, Viễn thông , Viễn thông , Viễn thông cố định , Viễn thông cố định 
+6570,Viễn thông di động,3, Viễn thông , Viễn thông , Viễn thông di động ,  
+6575,Viễn thông di động,4, Viễn thông , Viễn thông , Viễn thông di động , Viễn thông di động 
+7000,Các dịch vụ hạ tầng,1, Các dịch vụ hạ tầng ,  ,  ,  
+7500,Các dịch vụ hạ tầng,2, Các dịch vụ hạ tầng , Các dịch vụ hạ tầng ,  ,  
+7530,Điện,3, Các dịch vụ hạ tầng , Các dịch vụ hạ tầng , Điện ,  
+7535,Sản xuất và cung cấp điện truyền thống,4, Các dịch vụ hạ tầng , Các dịch vụ hạ tầng , Điện , Sản xuất và cung cấp điện truyền thống 
+7537,Sản xuất và cung cấp điện bằng năng lượng thay thế,4, Các dịch vụ hạ tầng , Các dịch vụ hạ tầng , Điện , Sản xuất và cung cấp điện bằng năng lượng thay thế 
+7570,"Ga, nước và các tiện ích khác",3, Các dịch vụ hạ tầng , Các dịch vụ hạ tầng ," Ga, nước và các tiện ích khác ",  
+7573,Phân phối khí đốt,4, Các dịch vụ hạ tầng , Các dịch vụ hạ tầng ," Ga, nước và các tiện ích khác ", Phân phối khí đốt 
+7575,Đa tiện ích,4, Các dịch vụ hạ tầng , Các dịch vụ hạ tầng ," Ga, nước và các tiện ích khác ", Đa tiện ích 
+7577,Cung cấp nước sạch,4, Các dịch vụ hạ tầng , Các dịch vụ hạ tầng ," Ga, nước và các tiện ích khác ", Cung cấp nước sạch 
+8000,Tài chính,1, Tài chính ,  ,  ,  
+8300,Ngân hàng,2, Tài chính , Ngân hàng ,  ,  
+8350,Ngân hàng,3, Tài chính , Ngân hàng , Ngân hàng ,  
+8355,Ngân hàng,4, Tài chính , Ngân hàng , Ngân hàng , Ngân hàng 
+8500,Bảo hiểm,2, Tài chính , Bảo hiểm ,  ,  
+8530,Bảo hiểm phi nhân thọ,3, Tài chính , Bảo hiểm , Bảo hiểm phi nhân thọ ,  
+8532,Các công ty bảo hiểm tổng hợp,4, Tài chính , Bảo hiểm , Bảo hiểm phi nhân thọ , Các công ty bảo hiểm tổng hợp 
+8534,Môi giới bảo hiểm,4, Tài chính , Bảo hiểm , Bảo hiểm phi nhân thọ , Môi giới bảo hiểm 
+8536,Bảo hiểm tài sản và tai nạn,4, Tài chính , Bảo hiểm , Bảo hiểm phi nhân thọ , Bảo hiểm tài sản và tai nạn 
+8538,Tái bảo hiểm,4, Tài chính , Bảo hiểm , Bảo hiểm phi nhân thọ , Tái bảo hiểm 
+8570,Bảo hiểm nhân thọ,3, Tài chính , Bảo hiểm , Bảo hiểm nhân thọ ,  
+8575,Bảo hiểm nhân thọ,4, Tài chính , Bảo hiểm , Bảo hiểm nhân thọ , Bảo hiểm nhân thọ 
+8580,Công ty bảo hiểm,3, Tài chính , Bảo hiểm , Công ty bảo hiểm ,  
+8581,Công ty bảo hiểm,4, Tài chính , Bảo hiểm , Công ty bảo hiểm , Công ty bảo hiểm 
+8600,Bất động sản,2, Tài chính , Bất động sản ,  ,  
+8630,Đầu tư bất động sản và dịch vụ,3, Tài chính , Bất động sản , Đầu tư bất động sản và dịch vụ ,  
+8633,Các công ty đầu cơ và phát triển bất động sản,4, Tài chính , Bất động sản , Đầu tư bất động sản và dịch vụ , Các công ty đầu cơ và phát triển bất động sản 
+8637,Dịch vụ bất động sản,4, Tài chính , Bất động sản , Đầu tư bất động sản và dịch vụ , Dịch vụ bất động sản 
+8670,Đầu tư tín thác bất động sản,3, Tài chính , Bất động sản , Đầu tư tín thác bất động sản ,  
+8671,Tín thác đầu tư bất động sản công nghiệp và văn phòng,4, Tài chính , Bất động sản , Đầu tư tín thác bất động sản , Tín thác đầu tư bất động sản công nghiệp và văn phòng 
+8672,Tín thác đầu tư bất động sản bán lẻ,4, Tài chính , Bất động sản , Đầu tư tín thác bất động sản , Tín thác đầu tư bất động sản bán lẻ 
+8673,Tín thác đầu tư bất động sản nhà ở,4, Tài chính , Bất động sản , Đầu tư tín thác bất động sản , Tín thác đầu tư bất động sản nhà ở 
+8674,Tín thác đầu tư bất động sản đa dạng,4, Tài chính , Bất động sản , Đầu tư tín thác bất động sản , Tín thác đầu tư bất động sản đa dạng 
+8675,Tín thác đầu tư bất động sản đặc biệt,4, Tài chính , Bất động sản , Đầu tư tín thác bất động sản , Tín thác đầu tư bất động sản đặc biệt 
+8676,Tín thác đầu tư bất động sản thế chấp,4, Tài chính , Bất động sản , Đầu tư tín thác bất động sản , Tín thác đầu tư bất động sản thế chấp 
+8677,Tín thác đầu tư bất động sản khách sạn và nhà nghỉ,4, Tài chính , Bất động sản , Đầu tư tín thác bất động sản , Tín thác đầu tư bất động sản khách sạn và nhà nghỉ 
+8700,Dịch vụ tài chính,2, Tài chính , Dịch vụ tài chính ,  ,  
+8770,Tài chính tổng hợp,3, Tài chính , Dịch vụ tài chính , Tài chính tổng hợp ,  
+8771,Quản lý tài sản,4, Tài chính , Dịch vụ tài chính , Tài chính tổng hợp , Quản lý tài sản 
+8773,Tài chính bán lẻ,4, Tài chính , Dịch vụ tài chính , Tài chính tổng hợp , Tài chính bán lẻ 
+8775,Tài chính đặc thù,4, Tài chính , Dịch vụ tài chính , Tài chính tổng hợp , Tài chính đặc thù 
+8777,Dịch vụ tài chính,4, Tài chính , Dịch vụ tài chính , Tài chính tổng hợp , Dịch vụ tài chính 
+8779,Tài chính thế chấp,4, Tài chính , Dịch vụ tài chính , Tài chính tổng hợp , Tài chính thế chấp 
+8780,Công ty Chứng khoán,3, Tài chính , Dịch vụ tài chính , Công ty Chứng khoán ,  
+8781,Công ty Chứng khoán,4, Tài chính , Dịch vụ tài chính , Công ty Chứng khoán , Công ty Chứng khoán 
+8900,Đầu tư chứng khoán/phi chứng khoán,2, Tài chính , Đầu tư chứng khoán/phi chứng khoán ,  ,  
+8980,Quỹ đóng,3, Tài chính , Đầu tư chứng khoán/phi chứng khoán , Quỹ đóng ,  
+8985,Quỹ đóng,4, Tài chính , Đầu tư chứng khoán/phi chứng khoán , Quỹ đóng , Quỹ đóng 
+8990,Quỹ mở,3, Tài chính , Đầu tư chứng khoán/phi chứng khoán , Quỹ mở ,  
+8995,Quỹ mở,4, Tài chính , Đầu tư chứng khoán/phi chứng khoán , Quỹ mở , Quỹ mở 
+9000,Công nghệ,1, Công nghệ ,  ,  ,  
+9500,Công nghệ,2, Công nghệ , Công nghệ ,  ,  
+9530,Phần mềm và dịch vụ điện toán,3, Công nghệ , Công nghệ , Phần mềm và dịch vụ điện toán ,  
+9533,Dịch vụ điện toán,4, Công nghệ , Công nghệ , Phần mềm và dịch vụ điện toán , Dịch vụ điện toán 
+9535,Dịch vụ internet,4, Công nghệ , Công nghệ , Phần mềm và dịch vụ điện toán , Dịch vụ internet 
+9537,Công nghệ phần mềm,4, Công nghệ , Công nghệ , Phần mềm và dịch vụ điện toán , Công nghệ phần mềm 
+9570,Công nghệ phần cứng và thiết bị,3, Công nghệ , Công nghệ , Công nghệ phần cứng và thiết bị ,  
+9572,Công nghệ phần cứng,4, Công nghệ , Công nghệ , Công nghệ phần cứng và thiết bị , Công nghệ phần cứng 
+9574,Thiết bị điện tử văn phòng,4, Công nghệ , Công nghệ , Công nghệ phần cứng và thiết bị , Thiết bị điện tử văn phòng 
+9576,Thiết bị bán dẫn,4, Công nghệ , Công nghệ , Công nghệ phần cứng và thiết bị , Thiết bị bán dẫn 
+9578,Thiết bị viễn thông,4, Công nghệ , Công nghệ , Công nghệ phần cứng và thiết bị , Thiết bị viễn thông 

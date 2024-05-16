@@ -1,0 +1,12 @@
+openpyxl
+datetime
+pandas
+streamlit
+numpy
+statsmodels
+scipy
+matplotlib
+seaborn
+xlsxwriter
+plotly
+mplfinance
