@@ -25,6 +25,7 @@ basic_info, finance, events,calculation,trading_data,full_data,QA_data = st.tabs
 #Set up parameter
 risk_free_rate=7/100
 income_tax=20/100
+current_year = datetime.now().year
 
 indicator_range_max=1.1
 indicator_range_min=0.5
@@ -72,19 +73,22 @@ def finance_dict_to_dataframe(ticker_data_dict):
     return df_ordered
 
 def select_ticker(ticker_list):
-    user_input_ticker = st.selectbox('Select a Ticker', ticker_list)
-
-    # Function to handle option selection
-    # Process input
-    if user_input_ticker:
-        # Normalize input and company display names to lowercase for case-insensitive matching
-        st.session_state['selected_company']=user_input_ticker
-    else:
-        st.write("There's no company matching")
+    # Display the selectbox for user input
+    user_input_ticker = st.selectbox('Select a Ticker', ticker_list, key='ticker_selectbox')
+    
+    # Button for confirming the selection
+    if st.button('Confirm Selection'):
+        # Store the selected ticker in session state when the button is clicked
+        st.session_state.selected_company = user_input_ticker
+    
+    # Check if a company is selected
     if st.session_state.get('selected_company'):
         selected_option = st.session_state['selected_company']
         selected_ticker = selected_option.split(' - ')[0]
-    return selected_ticker
+        st.write(f'Selected Ticker: {selected_ticker}')
+        return selected_ticker
+    else:
+        st.write("There's no company selected")
 
 def calculate_weighted_averages(df, level):
     """
@@ -161,6 +165,8 @@ def transform_to_dataframe(health_data, health_groups):
                       index=[ticker, 'Benchmark', 'Score'],
                       columns=multi_index)
     return df
+
+
 
 @st.cache_data
 def build_company_metrics_dataframe(ticker, company_finance_df, industry_summary_df):
@@ -327,8 +333,6 @@ company_finance_df = read_onedrive_csv('https://1drv.ms/u/s!Agfa0F4-51TwgYEkqnTC
 industry_summary_df = read_onedrive_csv('https://1drv.ms/u/s!Agfa0F4-51TwgYEXK7eSdQyRZdaV7Q?e=4aNPHc')
 health_evaluation = read_onedrive_json('https://1drv.ms/u/s!Agfa0F4-51TwgYEBQL1XCUeiyNWLUg?e=KsIIWF')
 
-st.dataframe(industry_summary_df)
-
 price_df = read_onedrive_csv('https://1drv.ms/u/s!Agfa0F4-51Tw_mIpC7MpdyYmRhh2?e=hDSauu')
 trading_summary_df= read_onedrive_csv('https://1drv.ms/u/s!Agfa0F4-51TwgYFRGPjCn0zhoL0rWg?e=Ig8CLs')
     
@@ -364,20 +368,30 @@ with basic_info:
         selected_ticker=select_ticker(company_profile_data['display'])  
     if st.session_state.get('selected_company'):
         try:
+            # Displaying Basic Information
             st.subheader("Basic")
-            st.dataframe(company_profile_data[company_profile_data['ticker']==selected_ticker][['shortName','exchange']].T)
+            basic_info = company_profile_data[company_profile_data['ticker'] == selected_ticker][['shortName', 'exchange']].T
+            basic_info.columns = [selected_ticker]
+            st.dataframe(basic_info)
 
+            # Displaying Shares Information
             st.subheader("Shares")
-            st.dataframe(company_profile_data[company_profile_data['ticker']==selected_ticker][['Market Capitalization (Mil)','outstandingShare','issueShare','Free Shares']].T)
+            shares_info = company_profile_data[company_profile_data['ticker'] == selected_ticker][['Market Capitalization (Mil)', 'outstandingShare', 'issueShare', 'Free Shares']].T
+            shares_info.columns = [selected_ticker]
+            st.dataframe(shares_info)
 
+            # Displaying Ownership Information
             st.subheader("Ownership")
             st.write("Upcoming:  1. State Ownership")
-            st.dataframe(company_profile_data[company_profile_data['ticker']==selected_ticker][['noShareholders','foreignPercent']].T)
+            ownership_info = company_profile_data[company_profile_data['ticker'] == selected_ticker][['noShareholders', 'foreignPercent']].T
+            ownership_info.columns = [selected_ticker]
+            st.dataframe(ownership_info)
 
+            # Displaying Business Story Information
             st.subheader("Business Story")
-            st.dataframe(company_profile_data[company_profile_data['ticker']==selected_ticker][['companyProfile','historyDev','keyDevelopments','businessRisk','businessStrategies','companyPromise']].T)
-            
-
+            business_story_info = company_profile_data[company_profile_data['ticker'] == selected_ticker][['companyProfile', 'historyDev', 'keyDevelopments', 'businessRisk', 'businessStrategies', 'companyPromise']].T
+            business_story_info.columns = [selected_ticker]
+            st.dataframe(business_story_info)
         except:
             st.write("There is no Company data about this company yet")
     # Optionally display the full company data
@@ -446,13 +460,124 @@ health_groups={'Cost Profit': ['ROE', 'ROA'],
 
 with calculation:
     company_finance_df = pd.merge(company_finance_df, latest_prices, on='ticker', how='left')
+
+    # Input for risk-free rate
+    risk_free_rate = st.number_input("Risk-Free Rate (%)", min_value=0.0, max_value=100.0, value=7.0) / 100
+    company_finance_df['Discount Rate'] = np.maximum(
+                                        risk_free_rate,
+                                        risk_free_rate + company_finance_df['beta'] * (company_finance_df['Required rate of return'] - risk_free_rate))
+
+    company_finance_df['Discount Time Window (year)']=np.log(2)/np.log(1+company_finance_df['Discount Rate'])
+
+    company_finance_df['CAPM']=company_finance_df['Projected_ProfitAfterTax']/(company_finance_df['Discount Rate'])/(1+company_finance_df['Discount Rate'])**company_finance_df['Discount Time Window (year)']
+
+    company_finance_df['Asset Quality Discount']=0 #cần tình
+    company_finance_df['Discounted Amount']=(company_finance_df['Inventories']+company_finance_df['Trade and Other Receivables'])*company_finance_df['Asset Quality Discount']
+    company_finance_df['Corrected Equity (BV)']=company_finance_df['Equity']-company_finance_df['Discounted Amount'] 
+    company_finance_df['Total_PresentValues']=company_finance_df['CAPM']+company_finance_df['Corrected Equity (BV)']
+    company_finance_df['Adjusted CAPM Per Share']=company_finance_df['Total_PresentValues']/company_finance_df['Number of outstanding shares']
+    
+    company_finance_df['Fair Price']=(company_finance_df['Adjusted CAPM Per Share']+company_finance_df['PB Valuation']+company_finance_df['PS Valuation'])/3
+    
     company_finance_df['Fair Price']=(company_finance_df['Adjusted CAPM Per Share']+company_finance_df['PB Valuation']+company_finance_df['PS Valuation'])/3
     company_finance_df['Opportunity']=company_finance_df['Fair Price']/company_finance_df['latest_price']-1
-    company_finance_df['Opportunity'] = company_finance_df['Opportunity'].apply(lambda x: f'{x:.2f}%')
+    company_finance_df['Opportunity'] = company_finance_df['Opportunity'].apply(lambda x: f'{x * 100:.0f}%')
+
+    company_finance_df['Book Value Per Share'] = company_finance_df['Equity']/company_finance_df['Number of outstanding shares']
+    company_finance_df['Sales Per Share'] = company_finance_df['Gross Revenue']/company_finance_df['Number of outstanding shares']
+    company_finance_df['Earning Per Share'] = company_finance_df['Profit After Tax']/company_finance_df['Number of outstanding shares']
     st.header(selected_ticker)
+
+    st.subheader('Screening Results')
+
+    # Extract necessary data for the selected ticker
+    selected_data = company_finance_df[company_finance_df['ticker'] == selected_ticker]
+
+    # Market Price related values
+    market_price = selected_data['Close Price'].values[0]
+    pe_market = market_price / selected_data['Earning Per Share'].values[0]
+    pb_market = market_price / selected_data['Book Value Per Share'].values[0]
+    ps_market = market_price / selected_data['Sales Per Share'].values[0]
+    roe = selected_data['ROE'].values[0]
+    roa = selected_data['ROA'].values[0]
+
+    # CAPM related values
+    capm_price = selected_data['Adjusted CAPM Per Share'].values[0]
+    pe_capm = capm_price / selected_data['Earning Per Share'].values[0]
+    pb_capm = capm_price / selected_data['Book Value Per Share'].values[0]
+    ps_capm = capm_price / selected_data['Sales Per Share'].values[0]
+    opportunity_capm = (capm_price / market_price - 1) * 100
+
+    # Fair Price related values
+    fair_price = selected_data['Fair Price'].values[0]  # Example calculation, adjust as needed
+    pe_fair = fair_price / selected_data['Earning Per Share'].values[0]
+    pb_fair = fair_price / selected_data['Book Value Per Share'].values[0]
+    ps_fair = fair_price / selected_data['Sales Per Share'].values[0]
+    opportunity_fair = (fair_price / market_price - 1) * 100
+
+    # Construct the "Screening Result" table
+    screening_result = pd.DataFrame({
+        '': ['Market Price', 'CAPM', 'Fair Price'],
+        'Price': [f'{market_price:.0f}', f'{capm_price:.0f}', f'{fair_price:.0f}'],
+        'Opportunity': ['', f'{opportunity_capm:.2f}%', f'{opportunity_fair:.2f}%'],
+        'P/E': [pe_market, pe_capm, pe_fair],
+        'P/B': [pb_market, pb_capm, pb_fair],
+        'P/S': [ps_market, ps_capm, ps_fair],
+        'ROE': [f'{(roe*100):.2f}%', '', ''],
+        'ROA': [f'{(roa*100):.2f}%', '', '']
+    })
+
+    # Display the "Screening Result" table in Streamlit
+    st.dataframe(screening_result)
+
+
+    # Company Finance Results
+    st.subheader("Company Finance")
     st.dataframe(company_finance_df[company_finance_df['ticker']==selected_ticker])
-    st.dataframe(company_finance_df[company_finance_df['ticker']==selected_ticker][['Adjusted CAPM Per Share','PB Valuation','PS Valuation','Fair Price','latest_price']].applymap(lambda x: f'{x:.0f}').T)
-    st.write(company_finance_df[company_finance_df['ticker']==selected_ticker]['Opportunity'])
+    
+    col1, col2 = st.columns(2)
+
+    with col1:
+        # Company Calculation
+        st.subheader("Calculation")
+        calculation_info=company_finance_df[company_finance_df['ticker']==selected_ticker][['Adjusted CAPM Per Share','PB Valuation','PS Valuation','Fair Price','latest_price']].applymap(lambda x: f'{x:.0f}').T
+        calculation_info.columns = [selected_ticker]
+        st.dataframe(calculation_info)
+    with col2:
+        st.subheader("Average Dividend Data for "+selected_ticker)
+        def calculate_dividend_averages(df, ticker, current_year):
+            # Filter data for the selected ticker
+            selected_df = df[df['ticker'] == ticker]
+
+            # Filter data for the last 3 years
+            recent_df = selected_df[selected_df['cashYear'] >= current_year - 2]
+
+            # Calculate average cash dividend
+            cash_dividends = recent_df[recent_df['issueMethod'] == 'cash']['cashDividendPercentage'].mean()
+            if pd.isna(cash_dividends):
+                cash_dividends = 0 
+
+            # Calculate average stock dividend
+            stock_dividends = recent_df[recent_df['issueMethod'] == 'share']['cashDividendPercentage'].mean()
+            if pd.isna(stock_dividends):
+                stock_dividends = 0
+
+            averages = {
+                'Cash Dividend Avg3Y': f'{cash_dividends*100:.2f}%',
+                'Stock Dividend Avg3Y': f'{stock_dividends*100:.2f}%'
+            }
+            averages_df = pd.DataFrame([averages])
+                # Style the DataFrame
+            def style_specific(df):
+                return df.style.set_table_styles(
+                    [{'selector': 'th',
+                    'props': [('background-color', 'black'), ('color', 'white')]}]
+                ).set_properties(**{'border': '1.4px solid black', 'text-align': 'center'})
+
+            styled_df = style_specific(averages_df)
+            return styled_df
+        st.write(calculate_dividend_averages(dividend_df,selected_ticker, current_year), unsafe_allow_html=True)
+
     st.header("Benchmark")
     # Flatten the group structure for easier data retrieval
     ticker_data_df = build_company_metrics_dataframe(selected_ticker, company_finance_df, industry_summary_df)
@@ -462,7 +587,7 @@ with calculation:
     st.header("Ticker Health")
     company_health=transform_to_dataframe(health_evaluation[selected_ticker], health_groups)
 
-    current_year = datetime.now().year
+
     # Function to calculate average dividends for a given ticker and type over the last 3 years
 
     # Convert dataframe to HTML with multi-level headers
@@ -517,40 +642,8 @@ with calculation:
         return html
 
     # Display HTML in Streamlit
-    st.write("Current")
     html_str = dataframe_to_html(company_health)
     st.markdown(html_str, unsafe_allow_html=True)
-    
-    
-    st.subheader("Average Dividend Data for:", selected_ticker)
-    def calculate_dividend_averages(df, ticker, current_year):
-        # Filter data for the selected ticker
-        selected_df = df[df['ticker'] == ticker]
-
-        # Filter data for the last 3 years
-        recent_df = selected_df[selected_df['cashYear'] >= current_year - 2]
-
-        # Calculate average cash dividend
-        cash_dividends = recent_df[recent_df['issueMethod'] == 'cash']['cashDividendPercentage'].mean()
-
-        # Calculate average stock dividend
-        stock_dividends = recent_df[recent_df['issueMethod'] == 'share']['cashDividendPercentage'].mean()
-
-        averages = {
-            'Cash Dividend Avg3Y': cash_dividends,
-            'Stock Dividend Avg3Y': stock_dividends
-        }
-        averages_df = pd.DataFrame([averages])
-            # Style the DataFrame
-        def style_specific(df):
-            return df.style.set_table_styles(
-                [{'selector': 'th',
-                'props': [('background-color', 'black'), ('color', 'white')]}]
-            ).set_properties(**{'border': '1.4px solid black', 'text-align': 'center'})
-
-        styled_df = style_specific(averages_df)
-        return styled_df
-    st.write(calculate_dividend_averages(dividend_df,selected_ticker, current_year), unsafe_allow_html=True)
     
 with trading_data:
     st.dataframe(trading_summary_df[trading_summary_df['ticker']==selected_ticker].set_index('ticker').T)
