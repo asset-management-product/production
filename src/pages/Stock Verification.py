@@ -579,6 +579,7 @@ with calculation:
         st.write(calculate_dividend_averages(dividend_df,selected_ticker, current_year), unsafe_allow_html=True)
 
     st.header("Benchmark")
+    
     # Flatten the group structure for easier data retrieval
     ticker_data_df = build_company_metrics_dataframe(selected_ticker, company_finance_df, industry_summary_df)
     html_str = industry_benchmark_dataframe_to_html(ticker_data_df)
