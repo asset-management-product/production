@@ -6,7 +6,65 @@ from io import BytesIO
 import json
 import streamlit as st
 import base64
+import inspect
+import time
+from PIL import Image
 
+
+# Timing decorator
+def timeit(func):
+    def wrapper(*args, **kwargs):
+        # Get the argument names and values
+        arg_names = inspect.getfullargspec(func).args
+        # Map the argument names to their values
+        arg_values = args[:len(arg_names)]
+        
+        # Create a string representation of the arguments
+        input_vars = []
+        for name, value in zip(arg_names, arg_values):
+            if isinstance(value, (str, int, float)):
+                input_vars.append(f"{name}: {repr(value)}")
+            else:
+                input_vars.append(f"{name}: {type(value).__name__}")
+        
+        # Include kwargs in the string representation
+        for key, value in kwargs.items():
+            if isinstance(value, (str, int, float)):
+                input_vars.append(f"{key}: {repr(value)}")
+            else:
+                input_vars.append(f"{key}: {type(value).__name__}")
+
+        input_vars_str = ", ".join(input_vars)
+
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+
+        st.write(f"Execution time for {func.__name__}({input_vars_str}): {end_time - start_time:.2f} seconds")
+        return result
+    return wrapper
+
+
+def convert_to_datetime(time_column):
+            try:
+                # Try to convert assuming the column is in YYYYMMDD format
+                return pd.to_datetime(time_column, format='%Y%m%d')
+            except:
+                try:
+                    # Try to convert assuming the column is in Unix timestamp (milliseconds)
+                    return pd.to_datetime(time_column, unit='ms')
+                except:
+                    try:
+                        # Try to convert assuming the column is in Unix timestamp (seconds)
+                        return pd.to_datetime(time_column, unit='s')
+                    except:
+                        try:
+                            # Try to convert assuming the column is in ISO format
+                            return pd.to_datetime(time_column)
+                        except:
+                            # If all conversions fail, return the original column
+                            return time_column
+                        
 @st.cache_data
 def get_data_csv(url):
     response=requests.get(url)
@@ -62,7 +120,8 @@ def read_github(file_name,database=None,file_path=None):
     return df
 
 @st.cache_data
-def read_onedrive_csv (onedrive_link):
+@timeit
+def read_onedrive_csv (onedrive_link,name=None):
     data_bytes64 = base64.b64encode(bytes(onedrive_link, 'utf-8'))
     data_bytes64_String = data_bytes64.decode('utf-8').replace('/','_').replace('+','-').rstrip("=")
     resultUrl = f"https://api.onedrive.com/v1.0/shares/u!{data_bytes64_String}/root/content"
@@ -70,6 +129,7 @@ def read_onedrive_csv (onedrive_link):
     return df
 
 @st.cache_data
+@timeit
 def read_onedrive_excel (onedrive_link,sheet_name=None):
     data_bytes64 = base64.b64encode(bytes(onedrive_link, 'utf-8'))
     data_bytes64_String = data_bytes64.decode('utf-8').replace('/','_').replace('+','-').rstrip("=")
@@ -80,6 +140,50 @@ def read_onedrive_excel (onedrive_link,sheet_name=None):
     else:
         df=pd.read_excel(resultUrl,sheet_name=sheet_name)
     return df
+
+@st.cache_data
+@timeit
+def read_onedrive_image(onedrive_link,name=None):
+    # Encode the OneDrive link to base64 format
+    data_bytes64 = base64.b64encode(bytes(onedrive_link, 'utf-8'))
+    data_bytes64_String = data_bytes64.decode('utf-8').replace('/', '_').replace('+', '-').rstrip("=")
+    
+    # Construct the API URL to access the file
+    resultUrl = f"https://api.onedrive.com/v1.0/shares/u!{data_bytes64_String}/root/content"
+    
+    # Fetch the image data from the URL
+    response = requests.get(resultUrl)
+    
+    # Check if the request was successful
+    if response.status_code == 200:
+        # Load the image from the response content
+        image = Image.open(BytesIO(response.content))
+        return image
+    else:
+        raise Exception(f"Failed to retrieve image. Status code: {response.status_code}")
+
+
+
+@st.cache_data
+@timeit
+def read_onedrive_json(onedrive_link,name=None):
+    # Encode the OneDrive link to base64 format
+    data_bytes64 = base64.b64encode(bytes(onedrive_link, 'utf-8'))
+    data_bytes64_String = data_bytes64.decode('utf-8').replace('/', '_').replace('+', '-').rstrip("=")
+    
+    # Construct the API URL to access the file
+    resultUrl = f"https://api.onedrive.com/v1.0/shares/u!{data_bytes64_String}/root/content"
+    
+    # Fetch the JSON data from the URL
+    response = requests.get(resultUrl)
+    
+    # Check if the request was successful
+    if response.status_code == 200:
+        data = json.loads(response.content)
+        return data
+    else:
+        raise Exception(f"Failed to retrieve JSON data. Status code: {response.status_code}")
+
 
 @st.cache_data
 def read_onedrive_json(onedrive_link):
